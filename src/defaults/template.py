@@ -1,6 +1,6 @@
 TEMPLATE_DEFAULTS = {
     "preProcessors": [],
-    "emptyValue": "",
+    "emptyValue": "MultiMarked",
     "customLabels": {},
     "outputColumns": [],
 }

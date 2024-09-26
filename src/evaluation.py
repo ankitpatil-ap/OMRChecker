@@ -44,7 +44,7 @@ class AnswerMatcher:
         elif type(answer_item) == list:
             if (
                 # Array of answer elements: ['A', 'B', 'AB']
-                len(answer_item) >= 2
+                len(answer_item) >= 1
                 and all(
                     self.is_standard_answer(answers_or_score)
                     for answers_or_score in answer_item
@@ -55,7 +55,7 @@ class AnswerMatcher:
                 # Array of two-tuples: [['A', 1], ['B', 1], ['C', 3], ['AB', 2]]
                 len(answer_item) >= 1
                 and all(
-                    type(answer_and_score) == list and len(answer_and_score) == 2
+                    type(answer_and_score) == list and len(answer_and_score) == 1
                     for answer_and_score in answer_item
                 )
                 and all(
@@ -111,7 +111,7 @@ class AnswerMatcher:
         elif answer_type == "multiple-correct-weighted":
             question_verdict = self.get_multiple_correct_weighted_verdict(marked_answer)
         return question_verdict, self.marking[question_verdict]
-
+    
     def get_standard_verdict(self, marked_answer):
         allowed_answer = self.answer_item
         if marked_answer == self.empty_val:

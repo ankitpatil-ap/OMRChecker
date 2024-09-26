@@ -357,6 +357,11 @@ class ImageInstanceOps:
                         field_label = field_block_bubbles[0].field_label
                         omr_response[field_label] = field_block.empty_val
 
+                    
+                    if len(detected_bubbles) == 2:
+                        field_label = field_block_bubbles[0].field_label
+                        omr_response[field_label] = field_block.empty_val
+
                     if config.outputs.show_image_level >= 5:
                         if key in all_c_box_vals:
                             q_nums[key].append(f"{key[:2]}_c{str(block_q_strip_no)}")
